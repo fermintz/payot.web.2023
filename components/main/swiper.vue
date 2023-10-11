@@ -18,19 +18,16 @@
       class="mySwiper"
     >
       <swiper-slide>
-        <img src="https://picsum.photos/1440/501">
+        <img src="~/assets/image/home/visual01.jpg">
       </swiper-slide>
       <swiper-slide>
-        <img src="https://picsum.photos/1440/502">
+        <img src="~/assets/image/home/visual02.jpg">
       </swiper-slide>
       <swiper-slide>
-        <img src="https://picsum.photos/1440/503">
+        <img src="~/assets/image/home/visual03.jpg">
       </swiper-slide>
       <swiper-slide>
-        <img src="https://picsum.photos/1440/504">
-      </swiper-slide>
-      <swiper-slide>
-        <img src="https://picsum.photos/1440/505">
+        <img src="~/assets/image/home/visual04.jpg">
       </swiper-slide>
     </swiper>
   </div>
@@ -46,6 +43,8 @@ const modules = [Pagination, Autoplay]
 
 <style lang="scss" scoped>
 .mainSlide{
+  position: relative;
+  z-index:10;
   @media screen and (max-width:1480px) {
     padding:0 20px;
   }

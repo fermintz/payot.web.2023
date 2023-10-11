@@ -5,7 +5,7 @@ html, body{
   -moz-osx-font-smoothing: grayscale;
   color:#494949;
   font-size:16px;
-  line-height:1.2;
+  line-height:1.4;
   word-break: keep-all;
 }
 
@@ -23,16 +23,17 @@ html, body{
 
 @media screen and (max-width:720px) {
   html,body{
-    font-size:12px;
+    font-size:13px;
   }
 }
 
 
-
 /*  16px 기준
+70px - 4.38rem
 46px - 3.13rem
 40px - 2.5rem
 36px - 2.25em
+28px - 1.75em
 24px - 1.5em
 22px - 1.38em
 20px - 1.25em
@@ -84,4 +85,8 @@ button{
       background:rgba(0,0,0,0.05)
     }
   }
+}
+
+img{
+  display:block;
 }

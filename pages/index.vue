@@ -1,12 +1,11 @@
 <template>
-  <div class="main">
+  <div class="">
     <div class="main_slider">
       <MainSwiper />
     </div>
 
     <div class="mobile_slider">
       <MainMobileSwiper />
-
     </div>
 
     <div class="inner">
@@ -161,17 +160,60 @@
 
     </section>
 
-    <section class="custmoer">
-      <el-row>
+    <section class="main_bottom inner">
+      <el-row :gutter="100"> 
         <el-col :lg="12">
-        
+          <dl class="news">
+            <dt>
+              <strong>News</strong>
+              <span>페이오티 새소식</span>
+            </dt>
+            <dd>
+              <ul>
+                <li v-for="item in 5" :key="item">
+                  <img src="https://picsum.photos/200" />
+                  <div class="text">
+                    <strong>페이오티 셀프빨래방 키오스크, 빨래방 운영관리에 필수요소!</strong>
+                    <span>2023.02.10</span>
+                  </div>
+                </li>
+              </ul>
+            </dd>
+          </dl>
         </el-col>
         <el-col :lg="12">
-        
+          <dl class="support">
+            <dt>
+              <strong>Support</strong>
+              <span>고객지원</span>
+            </dt>
+            <dd>
+              dd
+            </dd>
+          </dl>
+          <dl class="customer">
+            <dt>
+              <strong>Customer</strong>
+              <span>고객센터</span>
+            </dt>
+            <dd>
+              <div class="operation">
+                <strong>070-7807-6857</strong>
+                <span>평일 10:00 ~ 17:00</span>
+                <span>점심 12:30 ~ 13:30</span>
+                <span>토,일,공휴일 휴무</span>
+              </div>
+              <div class="kakao_qr">
+                <p>카카오톡 상담</p>
+                <div class="qr_area">
+
+                </div>
+              </div>
+            </dd>
+          </dl>
         </el-col>
       </el-row>
     </section>
-
   </div>
 </template>
 
@@ -432,9 +474,120 @@ section.partner{
 }
 
 section.wide_banner{
-  background:#f2f2f2;
-  height:600px;
+  background-image: url('https://picsum.photos/1920/1080');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+
+  height:500px;
   margin:150px 0;
+}
+
+section.main_bottom{
+  dl{
+    dt{
+      display:flex;
+      align-items: flex-end;
+      margin-bottom:30px;
+      strong{
+        font-size: 2.25rem;
+        font-weight:600;
+        line-height:1;
+        margin-right:15px;
+      }
+      span{
+        color:#898989;
+      }
+    }
+  }
+
+  .news{
+
+    @media screen and (max-width:1480px) {
+      margin-bottom:70px;
+    }
+    ul{
+      display:flex;
+      flex-direction: column;
+      gap:24px;
+    }
+    li{
+      display:flex;
+      align-items: center;
+      gap:30px;
+      img{
+        width:110px;
+        height:110px;
+        border-radius:10px;
+        object-fit: cover;
+        border:1px solid #e2e2e2;
+      }
+      .text{
+        flex:1;
+        strong{
+          display:block;
+          font-size:1.13rem;
+          font-weight:600;
+        }
+        span{
+          display:block;
+          color:#898989;
+          margin-top:10px;
+        }
+      }
+    }
+  }
+  .support{
+    margin-bottom:70px;
+    dd{
+      height:250px;
+      background:#f2f2f2;
+      border-radius:10px;
+      padding:30px;
+    }
+  }
+
+  .customer{
+    dd{
+      position: relative;
+      min-height:250px;
+      background:#f2f2f2;
+      padding:30px;
+      border-radius:10px;
+    }
+    .operation{
+      strong,span{
+        display:block;
+      }
+      strong{
+        font-size:2.25rem;
+        font-weight:800;
+        margin-bottom:15px;
+      }
+      span{
+        margin-bottom:5px;
+      }
+    }
+    .kakao_qr{
+      position: absolute;
+      right:30px;
+      bottom:30px;
+      display:flex;
+      flex-direction: column;
+      align-items: flex-end;
+      p{
+        text-align:center;
+        width:120px;
+        margin-bottom:10px; 
+      }
+      .qr_area{
+        width:120px;
+        height:120px;
+        border-radius:10px;
+        background:#F5E000;
+      }
+    }
+  }
 }
 
 </style>

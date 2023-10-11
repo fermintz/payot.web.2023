@@ -4,6 +4,7 @@
     <div class="container">
       <slot />
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -15,4 +16,9 @@
 .wrap{
   
 }
+@media screen and (max-width:1480px) {
+
+}
+
+
 </style>

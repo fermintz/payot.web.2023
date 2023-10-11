@@ -6,8 +6,8 @@
     </div>
 
     <div class="grid">
-      <el-row :gutter="30"> 
-        <el-col :md="8" :sm="12">
+      <el-row> 
+        <el-col :md="8" :sm="12" :xs="12">
           <swiper
           :autoplay="{
             delay:3000,
@@ -38,7 +38,7 @@
 
           
         </el-col>
-        <el-col :md="8" :sm="12">
+        <el-col :md="8" :sm="12" :xs="12">
           <swiper
           :autoplay="{
             delay:3000,
@@ -67,7 +67,7 @@
             </swiper-slide>
           </swiper>
         </el-col>
-        <el-col :md="8" :sm="12">
+        <el-col :md="8" :sm="12" :xs="12">
           <swiper
           :autoplay="{
             delay:3000,
@@ -97,19 +97,8 @@
           </swiper>
           
         </el-col>
-        <el-col :md="16" :sm="12">
-          <dl class="grid_row_item">
-            <dt>
-              <strong>설치된 매장수</strong>
-              <span>다양한 무인세탁매장에서<br/>페이오티 키오스크를사용하고 있습니다</span>
-              <a href="#">전국 매장지도 확인하기</a>
-            </dt>
-            <dd>
-              700
-            </dd>             
-          </dl>
-        </el-col>
-        <el-col :md="8" :sm="12">
+        
+        <el-col :md="8" :sm="12" :xs="12">
           <swiper
           :autoplay="{
             delay:3000,
@@ -139,6 +128,19 @@
           </swiper>
           
         </el-col>
+
+        <el-col :md="16" :sm="24" :xs="24">
+          <dl class="grid_row_item">
+            <dt>
+              <strong>설치된 매장수</strong>
+              <span>다양한 무인세탁매장에서<br/>페이오티 키오스크를사용하고 있습니다</span>
+              <a href="#">전국 매장지도 확인하기</a>
+            </dt>
+            <dd>
+              700
+            </dd>             
+          </dl>
+        </el-col>
       </el-row>
     </div>
   </section>
@@ -148,6 +150,8 @@
 import {Autoplay} from 'swiper'
 
 const modules = [Autoplay]
+
+
 </script>
 
 <style lang="scss" scoped>
@@ -168,6 +172,14 @@ const modules = [Autoplay]
   }
 
   .grid{
+
+    .el-row{
+      margin:-15px;
+    }
+    .el-col{
+      padding:15px;
+    }
+
     .grid_item{
       position: relative;
       display:flex;
@@ -175,7 +187,7 @@ const modules = [Autoplay]
       justify-content: space-between;
       background:#f2f2f2;
       border-radius:10px;
-      margin-bottom:30px;
+
 
       &::after{
         content:'';
@@ -186,9 +198,10 @@ const modules = [Autoplay]
       dt{
         position: absolute;
         width:100%;
-        left:30px;
-        top:30px;
-        font-size:1.38rem;
+        left:0;
+        top:0;
+        padding:30px;
+        font-size:1.25rem;
         font-weight:600;
       }
       dd{
@@ -219,7 +232,7 @@ const modules = [Autoplay]
           display:block;
         }
         strong{
-          font-size:1.38rem;
+          font-size:1.25rem;
           font-weight:600;
         }
         span{
@@ -253,11 +266,22 @@ const modules = [Autoplay]
       }
     }
 
-    @media screen and (max-width:990px) {
+    @media screen and (max-width:768px) {
+
+      .el-row{
+        margin:-7.5px;
+      }
+      .el-col{
+        padding:7.5px;
+      }
+
       .grid_item{
         dt{
-          left:20px;
-          top:20px;
+          padding:20px;
+          font-size:1.13rem
+        }
+        &:after{
+          padding-bottom:100%;
         }
       }
       .grid_row_item{

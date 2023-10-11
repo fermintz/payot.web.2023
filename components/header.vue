@@ -2,23 +2,23 @@
   <header>
     <div class="inner">
       <div class="left">
-        <div class="logo">페이오티</div>
+        <div class="logo" @click="$router.push('/')">페이오티</div>
         <ul class="gnb">
-          <li class="d1-item" v-for="gnb1 in gnb" :key="gnb1.name">
-            <a href="#">{{ gnb1.name }}</a>
-            <ol class="d2" v-if="gnb1.d2 !== null">
-              <li class="d2-item" v-for="gnb2 in gnb1.d2" :key="gnb1.name">
-                <a href="#">{{ gnb2.name }}</a>
-              </li>
-            </ol>
+          <li v-for="(items, index) in gnb" :key="index">
+            <a @click="$router.push(items.routeName)">{{ items.name }}</a>
+            <div class="second" v-show="items.second !== false">
+              <span v-for="(second, index) in items.second" :key="index" @click="$router.push(second.routeName)">
+                {{second.name}}
+              </span>
+            </div>
           </li>
         </ul>
       </div>
 
       <div class="right">
         <div class="btns">
-          <button class="map">매장지도</button>
-          <button class="admin">무인매장 관리시스템</button>
+          <button class="map" @click="$router.push('map')">매장지도</button>
+          <button class="admin">매장 관리시스템</button>
           <button class="kakao">카카오톡 상담</button>
         </div>
         <div class="mobile_btns">
@@ -32,18 +32,20 @@
 </template>
 
 <script lang="ts" setup>
+import {ref} from 'vue'
+
 const gnb = ref([
   {
     name: "회사소개",
-    routeName: "#",
-    d2: null,
+    routeName: "about",
+    second: false,
   },
   {
     name: "키오스크",
     routeName: "#",
-    d2: [
+    second: [
       {
-        name: "키오스크32",
+        name: "키오스크 32",
         routeName: "kiosk32",
       },
       {
@@ -55,12 +57,12 @@ const gnb = ref([
   {
     name: "스마트페이",
     routeName: "#",
-    d2: null,
+    second: false,
   },
   {
     name: "고객지원",
     routeName: "#",
-    d2: null,
+    second: false,
   },
 ]);
 </script>
@@ -72,14 +74,15 @@ header {
   align-items: center;
   border-bottom: 1px solid #e2e2e2;
   background: #fff;
-  z-index: 10;
-  height:80px;
-  top:0px;
+  z-index: 99;
+  height: 80px;
+  top: 0px;
 
   .inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    overflow:inherit;
 
     .left {
       display: flex;
@@ -88,66 +91,62 @@ header {
       .logo {
         font-size: 24px;
         font-weight: bold;
+        cursor: pointer;
       }
-      .gnb {
+
+      ul.gnb{
         display: flex;
         gap: 64px;
-        .d1-item {
+
+        li{
           position: relative;
-          height: 80px;
-          display: flex;
-          align-items: center;
-          > a {
+          &:hover{
+            .second{
+              display:block;
+            }
+          }
+
+          a{
+            display:block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height:80px;
             font-size: 1.13rem;
             font-weight: 500;
-          }
+            cursor: pointer;
 
-          &:hover {
-            > a {
-              color: #0066ff;
-            }
-
-            .d2 {
-              display: block;
-              animation: menu_animation 0.3s ease;
-              @keyframes menu_animation {
-                0% {
-                  opacity: 0.5;
-                }
-                100% {
-                  opacity: 1;
-                }
-              }
+            &:hover{
+              color:#0066ff;
             }
           }
-        }
-        .d2 {
-          display: none;
-          position: absolute;
-          min-width: 240px;
-          border: 1px solid #e2e2e2;
-          border-radius: 0 0 10px 10px;
-          left: -20px;
-          top: 80px;
-          z-index: 1;
-          background: #fff;
-          overflow: hidden;
 
-          li {
-            a {
-              height: 50px;
-              padding: 0 20px;
-              display: flex;
+          .second{
+            display:none;
+            padding:10px 0;
+            position: absolute;
+            width:200px;
+            left:-20px;
+            top:79px;
+            background:#fff;
+            border:1px solid #e2e2e2;
+
+            span{
+              height:40px;
+              padding:0 20px;
+              display:flex;
               align-items: center;
-              font-size: 16px;
+              cursor: pointer;
 
-              &:hover {
-                background: #f5f5f7;
+              &:hover{
+                background:#f2f2f2;
               }
             }
+            
           }
         }
       }
+      
     }
     .right {
       .mobile_btns {
@@ -155,9 +154,9 @@ header {
         button {
           width: 50px;
           height: 50px;
-          border:0;
-          span{
-            font-size:32px;
+          border: 0;
+          span {
+            font-size: 32px;
           }
         }
       }
@@ -202,7 +201,7 @@ header {
   header {
     .inner {
       .left {
-        .gnb {
+        ul.gnb {
           display: none;
         }
       }

@@ -3,18 +3,24 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --host",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "^3.3.3"
+    "nuxt": "^3.3.3",
+    "nuxt-icon": "^0.3.3"
   },
   "dependencies": {
-    "element-plus": "^2.3.2",
+    "@vueuse/core": "^10.0.2",
+    "@vueuse/nuxt": "^10.0.2",
+    "chart.js": "^4.2.1",
+    "chartjs-plugin-datalabels": "^2.2.0",
     "material-icons": "^1.13.4",
     "nuxt-swiper": "^1.1.0",
-    "sass": "^1.60.0"
+    "sass": "^1.69.2",
+    "sass-loader": "^13.3.2",
+    "vue-chartjs": "^5.2.0"
   }
 }
